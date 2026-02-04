@@ -1,0 +1,15 @@
+/* Increase base font size */
+html {
+  font-size: 24px;
+}
+
+/* Widen content area */
+.max-w-7xl {
+  max-width: 90rem;
+}
+.article-content {
+  max-width: 150ch;
+}
+#single_header {
+  max-width: 150ch;
+}

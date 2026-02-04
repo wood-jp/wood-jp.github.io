@@ -1,0 +1,9 @@
+title = "In Jim's Professional Opinion"
+
+[params.author]
+name = "Jim Wood"
+image = "https://avatars.githubusercontent.com/u/3757184?v=4"
+headline = "Yet another software developer blog"
+links = [
+    { github = "https://github.com/wood-jp" }
+]

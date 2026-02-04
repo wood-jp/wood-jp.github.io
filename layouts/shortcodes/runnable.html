@@ -1,0 +1,4 @@
+{{ $sandbox := .Get "sandbox" | default "go" }}
+{{ $template := .Get "template" }}
+{{ highlight (trim .Inner "\n") $sandbox }}
+<codapi-snippet sandbox="{{ $sandbox }}" editor="basic"{{ with $template }} template="#{{ . }}"{{ end }}></codapi-snippet>

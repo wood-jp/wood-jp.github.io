@@ -1,0 +1,18 @@
+colorScheme = "congo"
+
+mainSections = ["blog"]
+
+[global]
+  customCSS = ["css/custom.css"]
+
+[homepage]
+  layout = "profile"
+  showRecent = true
+  showRecentItems = 5
+
+[article]
+  showDate = true
+  showAuthor = true
+  showReadingTime = true
+  showTableOfContents = true
+  showTaxonomies = true

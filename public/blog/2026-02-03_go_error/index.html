@@ -230,7 +230,7 @@
     "keywords": ["golang"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1231"
+    "wordCount": "1366"
   }]
   </script>
 
@@ -568,7 +568,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2026-02-03T00:00:00&#43;00:00">3 February 2026</time><span class="px-2 text-primary-500">&middot;</span><span>1231 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
+      <time datetime="2026-02-03T00:00:00&#43;00:00">3 February 2026</time><span class="px-2 text-primary-500">&middot;</span><span>1366 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">7 mins</span>
     
 
     
@@ -581,8 +581,6 @@
   
     <div class="flex flex-row flex-wrap items-center">
       
-        
-          
         
       
         
@@ -719,6 +717,11 @@
       </ul>
     </li>
     <li><a href="#a-generic-error-wrapper">A Generic Error Wrapper</a></li>
+    <li><a href="#next-steps">Next Steps</a>
+      <ul>
+        <li><a href="#related-reading">Related Reading</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -740,6 +743,11 @@
       </ul>
     </li>
     <li><a href="#a-generic-error-wrapper">A Generic Error Wrapper</a></li>
+    <li><a href="#next-steps">Next Steps</a>
+      <ul>
+        <li><a href="#related-reading">Related Reading</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -754,6 +762,29 @@
 
       <div class="min-w-0 min-h-0 max-w-fit">
         
+  <details
+    class="mt-2 mb-5 overflow-hidden rounded-lg ms-0 ps-5"
+    >
+    
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 -ms-5 ps-5 dark:bg-primary-800 dark:text-neutral-100">
+    Go Error Handling -
+    This article is part of a series.
+  </summary>
+  
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        Part 1:
+        This Article
+      </div>
+    
+  
+
+
+  </details>
+
 
         <div class="article-content max-w-prose mb-20">
           
@@ -1100,12 +1131,63 @@ func (f FooError) Unwrap() error {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ContentLen</span> <span style="color:#66d9ef">int64</span> <span style="color:#e6db74">`json:&#34;content_len&#34;`</span>
 </span></span><span style="display:flex;"><span>}</span></span></code></pre></div></div>
 
+<h2 class="relative group">Next Steps
+    <div id="next-steps" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#next-steps" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>The complete code for our generic error wrapper can be found at <a href="https://github.com/wood-jp/xerrors"  target="_blank" rel="noreferrer">github.com/wood-jp/xerrors</a>. It contains tests, and is ready for use in production if you wish. Note that the code will likely differ from what was presented here as it is expanded and improved over time.</p>
+<p>In my next article in this series, I&rsquo;ll provide some concrete use cases for our generic error wrapper, which I hope will make the value of this wrapper much more clear.</p>
+
+<h3 class="relative group">Related Reading
+    <div id="related-reading" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#related-reading" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>No one writes code in a vaccuum. Here are some helpful resourced that helped me with writing this article:</p>
+<ul>
+<li><a href="https://www.dash0.com/guides/logging-in-go-with-slog#error-logging-with-slog"  target="_blank" rel="noreferrer">Logging in Go with Slog: A Practitioner&rsquo;s Guide</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/creating-custom-errors-in-go#type-assertions-and-custom-errors"  target="_blank" rel="noreferrer">Creating Custom Errors in Go</a></li>
+<li><a href="https://antonz.org/go-1-26/#errors-astype"  target="_blank" rel="noreferrer">Go 1.26 interactive tour</a></li>
+</ul>
+<hr>
+<p><em>Some code in this article is based on work from <a href="https://github.com/zircuit-labs/zkr-go-common-public"  target="_blank" rel="noreferrer">zkr-go-common</a>, licensed under the MIT License.</em></p>
+
           
           
           
         </div>
         
         
+  <details class="mt-2 mb-5 overflow-hidden rounded-lg ms-0 ps-5">
+    
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 -ms-5 ps-5 dark:bg-primary-800 dark:text-neutral-100">
+    Go Error Handling -
+    This article is part of a series.
+  </summary>
+  
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        Part 1:
+        This Article
+      </div>
+    
+  
+
+
+  </details>
+
 
         
 

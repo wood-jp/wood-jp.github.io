@@ -1,2 +1,6 @@
 baseURL = "https://your_domain.com/"
 languageCode = "en"
+
+[taxonomies]
+  tag = "tags"
+  series = "series"

@@ -1,6 +1,10 @@
-baseURL = "https://your_domain.com/"
+baseURL = "https://jimsopinion.xyz/"
 languageCode = "en"
 
 [taxonomies]
   tag = "tags"
   series = "series"
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'

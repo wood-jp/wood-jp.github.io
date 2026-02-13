@@ -1,9 +1,10 @@
-title = "In Jim's Professional Opinion"
+title = "In Jim's Personal Opinion"
 
 [params.author]
 name = "Jim Wood"
 image = "https://avatars.githubusercontent.com/u/3757184?v=4"
 headline = "Yet another software developer blog"
 links = [
-    { github = "https://github.com/wood-jp" }
+    { github = "https://github.com/wood-jp" },
+    { linkedin = "https://www.linkedin.com/in/woodjp/" }
 ]

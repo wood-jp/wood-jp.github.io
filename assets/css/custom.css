@@ -13,3 +13,100 @@ html {
 #single_header {
   max-width: 150ch;
 }
+
+.resume-header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.resume-name {
+  flex: 1;
+  font-size: 8.5rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-top: 2rem;
+  white-space: nowrap;
+}
+
+.resume-contact {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.resume-contact table {
+  margin-top: 0;
+}
+
+.resume-contact th,
+.resume-contact td,
+.resume-contact tr,
+.resume-contact thead {
+  border: none;
+}
+
+.article-content hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.page-break {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: letter;
+    margin: 0.75in;
+  }
+
+  html {
+    font-size: 11px;
+  }
+
+  .resume-name {
+    font-size: 4rem;
+  }
+
+  /* Firefox ignores break-before inside flex containers */
+  section.flex {
+    display: block;
+  }
+
+  .page-break {
+    display: block;
+    break-before: page;
+    page-break-before: always;
+  }
+
+  h1, h2, h3, h4 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  h1 + p, h2 + p, h3 + p, h4 + p {
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+
+  .keep-together {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .main-menu,
+  #site-footer {
+    display: none !important;
+  }
+}
+
+.resume-contact a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.resume-contact td {
+  text-align: right;
+}

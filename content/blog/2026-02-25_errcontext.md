@@ -2,7 +2,7 @@
 title: "Extended Error Use Case: errcontext"
 date: 2026-02-25
 description: "Introducing errcontext: attach structured logging to an error chain."
-tags: ["golang"]
+tags: ["golang", "errors", "generics", "logging"]
 series: ["Go Error Handling"]
 series_order: 3
 draft: false

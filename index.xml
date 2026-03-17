@@ -1,4 +1,52 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>In Jim's Personal Opinion</title><link>https://jimsopinion.xyz/</link><description>Recent content on In Jim's Personal Opinion</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2026 Jim Wood</copyright><lastBuildDate>Mon, 09 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jimsopinion.xyz/index.xml" rel="self" type="application/rss+xml"/><item><title>Jim Wood</title><link>https://jimsopinion.xyz/resume/</link><pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate><guid>https://jimsopinion.xyz/resume/</guid><description>&lt;div class="resume-header"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>In Jim's Personal Opinion</title><link>https://jimsopinion.xyz/</link><description>Recent content on In Jim's Personal Opinion</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2026 Jim Wood</copyright><lastBuildDate>Tue, 17 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jimsopinion.xyz/index.xml" rel="self" type="application/rss+xml"/><item><title>Extended Error Logging</title><link>https://jimsopinion.xyz/blog/2026-03-17_xerrors_logging/</link><pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate><guid>https://jimsopinion.xyz/blog/2026-03-17_xerrors_logging/</guid><description>&lt;h2 class="relative group"&gt;Recap
+ &lt;div id="recap" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#recap" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;We have created a high-level &lt;code&gt;ExtendedError&lt;/code&gt; type, and we implemented &lt;a href="https://pkg.go.dev/log/slog#LogValuer" target="_blank" rel="noreferrer"&gt;slog.LogValuer&lt;/a&gt;
+ with the following code:&lt;/p&gt;
+&lt;div class="highlight-wrapper"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;func&lt;/span&gt; (&lt;span style="color:#a6e22e"&gt;e&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;ExtendedError&lt;/span&gt;[&lt;span style="color:#a6e22e"&gt;T&lt;/span&gt;]) &lt;span style="color:#a6e22e"&gt;LogValue&lt;/span&gt;() &lt;span style="color:#a6e22e"&gt;slog&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Value&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;slog&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;GroupValue&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;slog&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Any&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;error&amp;#34;&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;e&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;err&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;slog&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Any&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;data&amp;#34;&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;e&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Data&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; )
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Each of our sub-packages (&lt;code&gt;errclass&lt;/code&gt;, &lt;code&gt;errcontext&lt;/code&gt;, and &lt;code&gt;stacktrace&lt;/code&gt;) also implement &lt;code&gt;slog.LogValuer&lt;/code&gt;. This allows us to add details to our logs easily.&lt;/p&gt;
+
+&lt;h2 class="relative group"&gt;Problem Description
+ &lt;div id="problem-description" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#problem-description" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;Consider the following program:&lt;/p&gt;</description></item><item><title>Extended Error Use Case: stacktrace</title><link>https://jimsopinion.xyz/blog/2026-03-16_stacktrace/</link><pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate><guid>https://jimsopinion.xyz/blog/2026-03-16_stacktrace/</guid><description>&lt;h2 class="relative group"&gt;Recap
+ &lt;div id="recap" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#recap" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;At the start of this series, we created a generic error wrapper that allowed us to attach type-safe data to another error.&lt;/p&gt;
+&lt;p&gt;The important parts we will need to reference are:&lt;/p&gt;
+&lt;div class="highlight-wrapper"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;package&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;xerrors&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;type&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;ExtendedError&lt;/span&gt;[&lt;span style="color:#a6e22e"&gt;T&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;any&lt;/span&gt;] &lt;span style="color:#66d9ef"&gt;struct&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;error&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;Data&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;T&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;func&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Extend&lt;/span&gt;[&lt;span style="color:#a6e22e"&gt;T&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;any&lt;/span&gt;](&lt;span style="color:#a6e22e"&gt;data&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;T&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;error&lt;/span&gt;) &lt;span style="color:#66d9ef"&gt;error&lt;/span&gt; { &lt;span style="color:#f92672"&gt;...&lt;/span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;func&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Extract&lt;/span&gt;[&lt;span style="color:#a6e22e"&gt;T&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;any&lt;/span&gt;](&lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;error&lt;/span&gt;) (&lt;span style="color:#a6e22e"&gt;T&lt;/span&gt;, &lt;span style="color:#66d9ef"&gt;bool&lt;/span&gt;) { &lt;span style="color:#f92672"&gt;...&lt;/span&gt; }&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;One of the stated reasons for doing this was to allow structured logging of errors to easily contain additional structured data. In this article, we will further explore that particular use case with a new sub-package.&lt;/p&gt;</description></item><item><title>Jim Wood</title><link>https://jimsopinion.xyz/resume/</link><pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate><guid>https://jimsopinion.xyz/resume/</guid><description>&lt;div class="resume-header"&gt;
  &lt;div class="resume-name"&gt;Jim Wood&lt;/div&gt;
  &lt;div class="resume-contact"&gt;&lt;table&gt;
  &lt;thead&gt;

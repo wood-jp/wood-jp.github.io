@@ -280,9 +280,7 @@ There's also that last frame, coming from `runtime.main` in this case, that we d
 
 ```go
 if skipRuntime {
-    if strings.HasPrefix(frame.Function, runtimePrefix) && runtimeRegex.MatchString(frame.File) {
-        continue
-    } else if strings.HasPrefix(frame.Function, testingPrefix) && testingRegex.MatchString(frame.File) {
+    if strings.HasPrefix(frame.Function, runtimePrefix) || strings.HasPrefix(frame.Function, testingPrefix) {
         continue
     }
 }
@@ -295,13 +293,6 @@ const (
     runtimePrefix = "runtime."
     testingPrefix = "testing."
 )
-
-// match the filename of the Go runtime package
-// eg `/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.4.linux-amd64/src/runtime/panic.go`
-var runtimeRegex = regexp.MustCompile(`go[^/]*/src/runtime/[^.]+\.go`)
-
-// match the filename of the Go testing package
-var testingRegex = regexp.MustCompile(`go[^/]*/src/testing/[^.]+\.go`)
 ```
 
 Putting it all together, here is the complete `GetStack`:
@@ -320,9 +311,7 @@ func GetStack(skipFrames int, skipRuntime bool) StackTrace {
             break
         }
         if skipRuntime {
-            if strings.HasPrefix(frame.Function, runtimePrefix) && runtimeRegex.MatchString(frame.File) {
-                continue
-            } else if strings.HasPrefix(frame.Function, testingPrefix) && testingRegex.MatchString(frame.File) {
+            if strings.HasPrefix(frame.Function, runtimePrefix) || strings.HasPrefix(frame.Function, testingPrefix) {
                 continue
             }
         }

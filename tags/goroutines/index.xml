@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Goroutines on In Jim's Personal Opinion</title><link>https://jimsopinion.xyz/tags/goroutines/</link><description>Recent content in Goroutines on In Jim's Personal Opinion</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2026 Jim Wood</copyright><lastBuildDate>Sat, 09 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jimsopinion.xyz/tags/goroutines/index.xml" rel="self" type="application/rss+xml"/><item><title>Service Lifecycle Management: task</title><link>https://jimsopinion.xyz/blog/2026-05-09_task/</link><pubDate>Sat, 09 May 2026 00:00:00 +0000</pubDate><guid>https://jimsopinion.xyz/blog/2026-05-09_task/</guid><description>&lt;h2 class="relative group"&gt;Use Case: Service Lifecycle Management
+ &lt;div id="use-case-service-lifecycle-management" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#use-case-service-lifecycle-management" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;When I was designing a new data pipeline for Adentro (Zenreach at the time), the design called for several microservices, most of which would read messages from a Kafka topic, do some simple transformation, and write back out to another topic. As I was planning out the work, I realized that each of those microservices would share a lot of the same boilerplate code: reading config, setting up a logger, setting up a Kafka consumer and producer, and handling graceful shutdown. I further considered that other microservices in our stack shared similar boilerplate, with Kafka consumers replaced by an HTTP server or a polling job.&lt;/p&gt;</description></item></channel></rss>
